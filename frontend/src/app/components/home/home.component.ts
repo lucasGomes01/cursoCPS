@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  nomeProduto: string = 'Curso de Angular';
+  nomeProduto : string = 'Curso de Angular';
   anuncio : string = `O ${this.nomeProduto} está em promoção!`;
-  idProduto : number = 123;
-  preco: number = 1.2;
-  promocao: boolean = false;
-  foto: string = 'assets/img/3.jpg'
+  idProduto : number = 3;
+  preco : number = 1.2;
+  promocao : boolean = false;
+  foto : string = 'assets/img/3.jpg';
+  dataValidade = '2021-09-10';
 
   constructor() {
     console.log(this.nomeProduto)

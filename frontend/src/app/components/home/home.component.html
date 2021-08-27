@@ -14,7 +14,8 @@
       </ng-template>
     </h5>
     <!-- trazer dados do typeScript para o html é interpolation -->
-    <p class="card-text">Identificação: {{ idProduto }}</p>
-    <a href="#" class="btn btn-primary float-end">R$ {{ preco }}</a>
+    <p class="card-text">Identificação: {{ idProduto | number: '2.0-0' }} <br>
+    Validade: {{dataValidade | date : 'shortDate'}} </p>
+    <a href="#" class="btn btn-primary float-end"> {{ preco | currency: 'BRL' : "symbol" :"1.2-3"}}</a>
   </div>
 </div>
