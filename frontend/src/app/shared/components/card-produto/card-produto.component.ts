@@ -12,7 +12,7 @@ export class CardProdutoComponent implements OnInit {
   @Input() promocao: boolean = false;
   @Input() idProduto: string = " ";
   @Input() dataValidade: string = " ";
-  @Input() preco: number = 0;
+  @Input() valor: number = 0;
 
   constructor() { }
 

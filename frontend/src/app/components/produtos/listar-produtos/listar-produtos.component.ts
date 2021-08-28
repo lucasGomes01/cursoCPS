@@ -1,3 +1,5 @@
+import { IProduto } from './../../../model/IProduto.model';
+import { ProdutosService } from './../../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,29 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProdutosComponent implements OnInit {
 
-  listaString : string[] = ['Primeiro', 'Segundo', 'Terceiro']
+  listaProduto : IProduto[] = []
+  constructor(private produtosService: ProdutosService) {
 
-  objetoModelo = {
-    nome: 'Lucas',
-    idade: '18',
-    altura: '1.65',
-    graduado: true
-  }
-
-  listaProduto : any[] = [
-    {nome: 'Sapato', valor: 20, idProduto: 1, validade: '2021-09-09'},
-    {nome: 'Relógio', valor: 25, idProduto: 2, validade: '2021-09-09'},
-    {nome: 'Bolsa', valor: 30, idProduto: 3, validade: '2021-09-09'},
-  ]
-  constructor() {
-    for (let item of this.listaString) {
-      console.log(item);
-    }
-
-    console.log(this.objetoModelo)
   }
 
   ngOnInit(): void {
+      this.carregarProdutos();
+  }
+
+  carregarProdutos(): void {
+    this.produtosService.buscarTodos().subscribe(retorno => {
+      this.listaProduto = retorno;
+    })
   }
 
 }
