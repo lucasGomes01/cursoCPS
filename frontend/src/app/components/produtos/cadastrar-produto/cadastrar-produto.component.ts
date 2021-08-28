@@ -1,4 +1,7 @@
+import { ProdutosService } from './../../../services/produtos.service';
+import { IProduto } from './../../../model/IProduto.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -7,19 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarProdutoComponent implements OnInit {
 
-  nome : string = '';
-  validade : string = '';
-  preco: number = 0;
+  produto: IProduto = {
+    nome: null as any,
+    validade: null as any,
+    valor: null as any
+  };
 
-  constructor() { }
+  constructor(private produtosService: ProdutosService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   salvarProduto(): void {
-    console.log(this.nome)
-    console.log(this.preco)
-    console.log(this.validade)
+    this.produtosService.cadastrar(this.produto).subscribe(retorno => {
+      this.produto = retorno;
+      this.produtosService.exibirMensagem('Sistema', `O produto ${this.produto.nome} foi cadastrado, Seu ID é ${this.produto.idProduto}`, 'toast-success');
+
+      this.router.navigate(['/produtos']);
+    });
+
   }
 
 }

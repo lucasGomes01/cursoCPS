@@ -15,7 +15,7 @@ export class ListarProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.carregarProdutos();
+    this.carregarProdutos();
   }
 
   carregarProdutos(): void {
@@ -23,5 +23,4 @@ export class ListarProdutosComponent implements OnInit {
       this.listaProduto = retorno;
     })
   }
-
 }

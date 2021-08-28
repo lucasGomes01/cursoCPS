@@ -24,6 +24,13 @@ export class ProdutosService {
     );
   }
 
+  cadastrar(produto: IProduto): Observable<IProduto> {
+    return this.HTTP.post<IProduto>(this.URL, produto).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro())
+    );
+  }
+
   exibirErro(): Observable<any> {
     this.exibirMensagem('ERRO!', 'Não foi possivel realizar a operação', 'toast-erro');
     return EMPTY;
