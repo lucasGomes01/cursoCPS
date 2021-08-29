@@ -1,5 +1,5 @@
 export interface IProduto {
-  idProduto?: number;
+  id?: number;
   nome: string;
   validade: Date;
   valor: number;

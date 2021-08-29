@@ -8,11 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardProdutoComponent implements OnInit {
 
   @Input() foto: string;;
-  @Input() nomeProduto: String = null as any;
-  @Input() promocao: boolean = null as any;
-  @Input() idProduto: string = null as any;
-  @Input() dataValidade: string = null as any;
-  @Input() valor: number = null as any;
+  @Input() nomeProduto: String;
+  @Input() promocao: boolean;
+  @Input() idProduto: string;
+  @Input() dataValidade: string;
+  @Input() valor: number;
 
   constructor() { }
 

@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class CadastrarProdutoComponent implements OnInit {
 
   produto: IProduto = {
-    nome: null as any,
-    validade: null as any,
-    valor: null as any
+    nome: null,
+    validade: null,
+    valor: null
   };
 
   constructor(private produtosService: ProdutosService, private router: Router) { }
@@ -24,7 +24,7 @@ export class CadastrarProdutoComponent implements OnInit {
   salvarProduto(): void {
     this.produtosService.cadastrar(this.produto).subscribe(retorno => {
       this.produto = retorno;
-      this.produtosService.exibirMensagem('Sistema', `O produto ${this.produto.nome} foi cadastrado, Seu ID é ${this.produto.idProduto}`, 'toast-success');
+      this.produtosService.exibirMensagem('Sistema', `O produto ${this.produto.nome} foi cadastrado, Seu ID é ${this.produto.id}`, 'toast-success');
 
       this.router.navigate(['/produtos']);
     });

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   idProduto : number = 3;
   valor : number = 1.2;
   promocao : boolean = false;
-  foto : string = 'assets/img/3.jpg';
+  foto : string = 'assets/img/1.jpg';
   dataValidade = '2021-09-10';
 
   constructor() {
