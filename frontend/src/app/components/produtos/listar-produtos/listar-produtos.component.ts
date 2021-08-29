@@ -1,6 +1,7 @@
 import { IProduto } from './../../../model/IProduto.model';
 import { ProdutosService } from './../../../services/produtos.service';
 import { Component, OnInit } from '@angular/core';
+import { title } from 'process';
 
 @Component({
   selector: 'app-listar-produtos',
@@ -23,4 +24,11 @@ export class ListarProdutosComponent implements OnInit {
       this.listaProduto = retorno;
     })
   }
-}
+
+  deletar(produto: IProduto): void {
+    this.produtosService.excluir(produto.id).subscribe(() => {
+      this.produtosService.exibirMensagem('Sistema', `O produto ${produto.nome} foi
+      excluído`,'toast-error');
+      this.carregarProdutos()
+    });
+} }

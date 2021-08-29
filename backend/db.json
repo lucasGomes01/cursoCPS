@@ -1,22 +1,3 @@
 {
-  "produtos": [
-    {
-      "id": "1",
-      "nome": "Curso de Angular",
-      "validade": "2021-08-27",
-      "valor": 10.5
-    },
-    {
-      "nome": "produto2 4",
-      "validade": "2021-08-20",
-      "valor": 23123,
-      "id": "2"
-    },
-    {
-      "nome": "ds",
-      "validade": "2021-08-07",
-      "valor": 3232,
-      "id": "3"
-    }
-  ]
+  "produtos": []
 }

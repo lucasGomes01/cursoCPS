@@ -45,6 +45,13 @@ export class ProdutosService {
     );
   }
 
+  excluir(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.URL}/${id}`).pipe(
+      map((retorno) => retorno),
+      catchError((erro) => this.exibeErro(erro))
+    );
+  }
+
   exibeErro(e: any): Observable<any> {
     this.exibirMensagem('ERRO!', 'Não foi possivel realizar a operação', 'toast-erro');
     return EMPTY;
