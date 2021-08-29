@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component';
 
 registerLocaleData(localePt);
 
@@ -31,6 +32,7 @@ registerLocaleData(localePt);
     HomeComponent,
     ListarProdutosComponent,
     CadastrarProdutoComponent,
+    AtualizarProdutoComponent,
   ],
   imports: [
     BrowserModule,

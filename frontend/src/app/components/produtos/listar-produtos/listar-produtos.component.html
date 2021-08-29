@@ -19,9 +19,9 @@
         <td>{{ prod.id }}</td>
         <td>{{ prod.nome }}</td>
         <td>{{ prod.validade | date: 'shortDate' }}</td>
-        <td>{{ prod.valor | currency }}</td>
+        <td>{{ prod.valor | currency: 'R$' }}</td>
         <td>
-          <button class="btn btn-warning me-2">
+          <button class="btn btn-warning me-2" routerLink="/produtos/atualizar/{{prod.id}}">
             <i class="fa fa-edit" arial-hidden="true"></i>
           </button>
           <button class="btn btn-danger ">

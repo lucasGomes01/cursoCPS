@@ -13,25 +13,39 @@ export class ProdutosService {
   private URL: string = 'http://localhost:3000/produtos'
 
   constructor(
-    private HTTP: HttpClient,
+    private http: HttpClient,
     private toastr: ToastrService
   ) { }
 
   buscarTodos(): Observable<IProduto[]> {
-    return this.HTTP.get<IProduto[]>(this.URL).pipe(
-      map(retorno => retorno),
-      catchError(erro => this.exibirErro())
+    return this.http.get<IProduto[]>(this.URL).pipe(
+      map((retorno) => retorno),
+      catchError((erro) => this.exibeErro(erro))
+    );
+  }
+
+  buscarPorId(id: number): Observable<IProduto> {
+    return this.http.get<IProduto>(`${this.URL}/${id}`).pipe(
+      map((retorno) => retorno),
+      catchError((erro) => this.exibeErro(erro))
     );
   }
 
   cadastrar(produto: IProduto): Observable<IProduto> {
-    return this.HTTP.post<IProduto>(this.URL, produto).pipe(
-      map(retorno => retorno),
-      catchError(erro => this.exibirErro())
+    return this.http.post<IProduto>(this.URL, produto).pipe(
+      map((retorno) => retorno),
+      catchError((erro) => this.exibeErro(erro))
     );
   }
 
-  exibirErro(): Observable<any> {
+  atualizar(produto: IProduto): Observable<IProduto> {
+    return this.http.put<IProduto>(`${this.URL}/${produto.id}`, produto).pipe(
+      map((retorno) => retorno),
+      catchError((erro) => this.exibeErro(erro))
+    );
+  }
+
+  exibeErro(e: any): Observable<any> {
     this.exibirMensagem('ERRO!', 'Não foi possivel realizar a operação', 'toast-erro');
     return EMPTY;
   }

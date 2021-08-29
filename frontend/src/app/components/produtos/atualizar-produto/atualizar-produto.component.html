@@ -1,0 +1,40 @@
+<p>atualizar-produto works!</p>
+<h1 class="my-3 text-primary">Atualizar produto</h1>
+
+<div class="card shadow">
+  <form class="m-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="nome">Nome produto</label>
+          <input type="text" class="form-control" placeholder="Digite o nome do produto"
+          name = "nomeProduto" [(ngModel)]="produto.nome">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="validade">validade produto</label>
+          <input type="date" class="form-control"
+          name = "validade" [(ngModel)]="produto.validade">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="preco">preço produto</label>
+          <input type="number" class="form-control" placeholder="0.00"
+          name = "valor" [(ngModel)]="produto.valor">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-default" routerLink="/produtos">Voltar</button>
+        <button class="btn btn-warning float-end" (click)="salvarProduto()" >Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>
